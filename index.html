@@ -4,38 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
     <title>Crown and Anchors</title>
 </head>
 <body>
     <div class="wrapper">
-        <p>Place your bet by clicking on any of the following cards. It could be one or more, no limit</p>
+        <h1>Place your bet by clicking on any of the following cards and put your desired amount. You could bet on one or any number of cards you think will win</h1>
         <form action="" method="post">
             <div class="label-container">
-                <label for="heart">
-                    <img src="img/heart.jpg" alt="" srcset="">
-                </label>
-                <label for="flower">
-                    <img src="img/flower.jpg" alt="" srcset="">
-                </label>
-                <label for="diamond">
-                    <img src="img/diamond.jpg" alt="" srcset="">
-                </label>
-                <label for="spade">
-                    <img src="img/spade.jpg" alt="" srcset="">
-                </label>
+                <div class="row">
+                    <div class="col-6 col-md-6 col-lg-2">
+                        <label for="heart">
+                            <img src="img/heart.png" alt="" srcset="">
+                        </label>
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-2">
+                        <label for="anchors">
+                            <img src="img/anchors.png" alt="" srcset="">
+                        </label>
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-2">
+                        <label for="flower">
+                            <img src="img/flower.png" alt="" srcset="">
+                        </label>
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-2">
+                        <label for="diamond">
+                            <img src="img/diamond.png" alt="" srcset="">
+                        </label>
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-2">
+                        <label for="spade">
+                            <img src="img/spade.png" alt="" srcset="">
+                        </label>
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-2">
+                        <label for="crown">
+                            <img src="img/crown.png" alt="" srcset="">
+                        </label>
+                    </div>
+                </div>
+              
             </div>
             
             <div class="input-container">
-                <input type="text" name="" id="heart">
-                <input type="text" name="" id="flower">
-                <input type="text" name="" id="diamond">
-                <input type="text" name="" id="spade">
+                <div class="row">
+                    <div class="col-6 col-md-6 col-lg-2">
+                        <input type="number" name="" id="heart">
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-2">
+                        <input type="number" name="" id="anchors">
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-2">
+                        <input type="number" name="" id="flower">
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-2">
+                        <input type="number" name="" id="diamond">
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-2">
+                        <input type="number" name="" id="spade">
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-2">
+                        <input type="number" name="" id="crown">
+                    </div>
+                </div>
+   
             </div>
             
 
             <div class="rolled-dice">
                 <img src="" alt="" srcset="" width="100px" id="one">
                 <img src="" alt="" srcset="" width="100px" id="two">
+                <img src="" alt="" srcset="" width="100px" id="three">
             </div>
             <input type="submit" value="Roll Dice">
             <div class="results"></div>
