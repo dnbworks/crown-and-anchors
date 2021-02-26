@@ -5,8 +5,12 @@
           box-sizing: border-box;
 }
 
+body {
+  background-color: #92a578eb;
+}
+
 .wrapper {
-  width: 60%;
+  width: 80%;
   margin: 20px auto;
 }
 
@@ -56,5 +60,25 @@ form {
 
 .border {
   border: 1px solid red;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.sub {
+  background-image: url("../img/minus.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.add {
+  background-image: url("../img/plus.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 /*# sourceMappingURL=style.css.map */

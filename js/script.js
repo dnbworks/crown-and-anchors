@@ -5,10 +5,16 @@ var imgthree = document.querySelector(".rolled-dice #three");
 var inputs = Array.from(document.querySelectorAll("input[type='number']"));
 var bets = [];
 
+
+var add = document.querySelectorAll(".add");
+var sub = document.querySelectorAll(".sub");
+
+        
+
 var isChecked = false;
 
 function randFace(){
-    return ["diamond", "flower","heart.","spade", "anchors", "crown"][Math.floor(Math.random()*4)];
+    return ["diamond", "flower","heart","spade", "anchors", "crown"][Math.floor(Math.random()*6)];
 }
 
 function Eachbet(card, amount){
@@ -36,17 +42,25 @@ form.addEventListener("submit", function(e){
            
     }
 
+    
+
     if (isChecked) {
+        imgone.src = 'img/' + rolledDiceResult[0] + '.png';
+        imgtwo.src = 'img/' + rolledDiceResult[1] + '.png';
+        imgthree.src = 'img/' + rolledDiceResult[2] + '.png';
+        
         for (let index = 0; index < rolledDiceResult.length; index++) {
             const chance = rolledDiceResult[index];
 
+
             for (let i = 0; i < bets.length; i++) {
                 const bet = bets[i];
+
                 if (chance === bet.card) {
-                    alert("results are equal");
+                    console.log("results are equal");
                     
                 } else {
-                    alert("results are not equal");
+                   console.log("results are not equal");
                 }
                 
             }
@@ -57,8 +71,78 @@ form.addEventListener("submit", function(e){
         alert("please insert atlest one value");
     }
 
+    randomCards();
+
     console.log(bets);
     
     
 });
+
+function spinDice(){
+    setTimeout(function(){
+
+    }, 2000);
+}
+
+add.forEach(addBtn => {
+    addBtn.addEventListener("click", function(e){
+        var value = parseInt(e.target.previousElementSibling.firstChild.nodeValue), plus;
+        if(!(value >= 10)){
+            plus = value + 1;
+            e.target.previousElementSibling.textContent = plus;
+        } else {
+            alert("$10 is the maximum amount you can bet for each card");
+        }
+
+        for(var i = 0; i<inputs.length; i++){
+            if(e.target.parentElement.parentElement.dataset.title == inputs[i].id){
+                inputs[i].value =  plus;
+            }
+        }
+
+    });
+});
+
+function randColor(){
+    return ["#736a45", "#45736f","#734555","#456f73", "#4a7345", "#734545"][Math.floor(Math.random()*6)];
+}
+
+
+function randomCards(){
+    setInterval(() => {
+        imgone.src = 'img/' + randFace() + '.png';
+        imgtwo.src = 'img/' + randFace() + '.png';
+        imgthree.src = 'img/' + randFace() + '.png';
+    }, 100);
+
+    setInterval(() => {
+        document.body.style['background-color'] = randColor();
+    }, 500);
+}
+
+
+
+
+
+sub.forEach(subBtn => {
+    subBtn.addEventListener("click", function(e){
+        let value = parseInt(e.target.nextElementSibling.firstChild.nodeValue), minus;
+        if(!(value <= 0)){
+            minus = value - 1;
+            e.target.nextElementSibling.textContent =  minus;
+        } else {
+            alert("$0 is the minimum amount you can bet for each card");
+        }
+
+        for(var i = 0; i<inputs.length; i++){
+            if(e.target.parentElement.parentElement.dataset.title == inputs[i].id){
+                inputs[i].value =  minus;
+            }
+        }
+
+    });
+    
+});
+
+
 
