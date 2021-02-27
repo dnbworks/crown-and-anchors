@@ -39,6 +39,7 @@ form.addEventListener("submit", function(e){
             }
   
         } 
+        break;
            
     }
 
@@ -71,18 +72,47 @@ form.addEventListener("submit", function(e){
         alert("please insert atlest one value");
     }
 
-    randomCards();
+    var counter = 0, card_1, card_2, card_3, randCards = [];
+    function randomCards(){
+         card_1 = randFace();
+         card_2 = randFace();
+         card_3 = randFace();
+        imgone.src = 'img/' + card_1 + '.png';
+        imgtwo.src = 'img/' + card_2 + '.png';
+        imgthree.src = 'img/' + card_3 + '.png';
+        counter++;
+        if(counter == 50){
+            clearInterval(intervals);
+            
+            console.log(card_1, card_2, card_3);
+            randCards[0] = card_1;
+            randCards[1] = card_2;
+            randCards[2] = card_3;
+
+            console.log(randCards);
+
+        }
+        console.log(card_1, card_2, card_3);
+
+        console.log(counter);
+
+    }
+
+    
+    var intervals = setInterval(randomCards, 100);
+
+    
+
 
     console.log(bets);
     
     
 });
 
-function spinDice(){
-    setTimeout(function(){
+// setInterval(() => {
+//         document.body.style['background-color'] = randColor();
+// }, 200);
 
-    }, 2000);
-}
 
 add.forEach(addBtn => {
     addBtn.addEventListener("click", function(e){
@@ -108,17 +138,7 @@ function randColor(){
 }
 
 
-function randomCards(){
-    setInterval(() => {
-        imgone.src = 'img/' + randFace() + '.png';
-        imgtwo.src = 'img/' + randFace() + '.png';
-        imgthree.src = 'img/' + randFace() + '.png';
-    }, 100);
 
-    setInterval(() => {
-        document.body.style['background-color'] = randColor();
-    }, 500);
-}
 
 
 
@@ -143,6 +163,4 @@ sub.forEach(subBtn => {
     });
     
 });
-
-
 
